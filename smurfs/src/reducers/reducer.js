@@ -1,6 +1,9 @@
 import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL } from '../actions/actions.js';
+import { START_EDITING, EDIT_SMURF_SUCCESS } from '../actions/actions.js';
 
 const initialState = {
+    isEditing: false,
+    smurfToEdit: {},
     isFetching: false,
     smurfs: [],
   };
@@ -30,6 +33,24 @@ export const reducer = (state = initialState, action) => {
           return{
             ...state,
             isFetching: false,
+          }
+      }
+      case START_EDITING:{
+          console.log('reducer firing START_EDITING');
+          return{
+            ...state,
+            isEditing: true,
+            smurfToEdit: action.payload,
+          }
+      }
+      case EDIT_SMURF_SUCCESS:{
+          console.log('reducer firing FETCH_SMURFS_SUCCESS');
+          return{
+            ...state,
+            smurfs: action.payload,
+            isFetching: false,
+            isEditing: false,
+            smurfToEdit: {},
           }
       }
 

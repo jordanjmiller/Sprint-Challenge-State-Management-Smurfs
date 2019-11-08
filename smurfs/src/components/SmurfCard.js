@@ -11,7 +11,7 @@ const SmurfCard = (props) => {
                             <p>id: {props.smurf.id}</p>
                             <p>age: {props.smurf.age}</p>
                             <p>height: {props.smurf.height}</p>
-                            <button onClick={()=>{props.exile(props.smurf.id)}}>Exile</button>
+                            <button onClick={()=>{props.editing(props.smurf)}}>Modify</button><button onClick={()=>{props.exile(props.smurf.id)}}>Exile</button>
                         </div>
                     );
                 }
